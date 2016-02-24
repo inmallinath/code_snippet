@@ -1,0 +1,10 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h1>All Snippets (<%= @snippets.length %>)</h1>
+    <br>
+    <% @snippets.each do |snippet| %>
+    <%= link_to snippet.title, snippet_path(snippet) %>
+    <hr>
+    <% end %>
+  </div>
+</div>

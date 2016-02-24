@@ -1,0 +1,25 @@
+<h1><%= @snippet.title %></h1>
+<p>Written By: <%= @snippet.user.full_name %></p>
+<p>Language: <%= @snippet.kind.language %> </p>
+
+<hr>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <p><%= @snippet.work %></p>
+  </div>
+</div>
+
+<hr>
+
+<p>
+  <% if can? :edit, @snippet %>
+    <%= button_to "Edit", edit_snippet_path(@snippet), method: :get %>
+  <% end %>
+</p>
+
+<p>
+  <% if can? :destroy, @snippet %>
+    <%= button_to "Delete", snippet_path(@snippet), method: :delete, data: {confirm: "Are you sure?"} %>
+  <% end %>
+</p>
