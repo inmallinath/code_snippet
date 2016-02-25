@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Blog</title>
+  <title>Code Snippet Repository</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -43,8 +43,8 @@
           <% if user_signed_in? %>
             <li>
               <%=
-              link_to "Private Snippets",
-              root_path,
+              link_to "Personal Snippets",
+              library_index_path,
               class: "btn btn-xs btn-success",
               style: "color: inherit"
               %>

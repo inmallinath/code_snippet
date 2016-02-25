@@ -6,8 +6,8 @@ gem "bootstrap-sass", '~> 3.2.0'
 gem 'autoprefixer-rails'
 gem 'cancancan'
 gem "font-awesome-rails"
-gem "coderay"
 gem "redcarpet"
+gem 'pygments.rb'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5.1'
@@ -44,6 +44,8 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'pry'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
 end
 
 group :development do

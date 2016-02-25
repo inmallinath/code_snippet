@@ -1,13 +1,14 @@
 class KindsController < ApplicationController
-  before_action :set_kind, only: [:show]
+  before_action :set_kind, only: [:show, :library_show]
   before_action :authenticate_user, except: [:index, :show]
 
   def index
     @kinds = Kind.all
+    @snippets = Snippet.where("priv_snippet=?", false)
   end
 
   def show
-    @snippets = Snippet.where("kind_id=?", params[:id])
+    @snippets = Snippet.where("kind_id=? AND priv_snippet=?", params[:id], false)
   end
 
   def new # A way for the user to add new languages
@@ -21,6 +22,14 @@ class KindsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def library_index
+    @kinds = Kind.all
+  end
+
+  def library_show
+    @snippets = Snippet.where("kind_id=? AND user_id=?", params[:id], current_user)
   end
 
   private

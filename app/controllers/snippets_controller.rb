@@ -6,7 +6,7 @@ class SnippetsController < ApplicationController
   def index
     @snippets = Snippet.all
   end
-  
+
   def show
   end
 
@@ -37,7 +37,7 @@ class SnippetsController < ApplicationController
 
   def destroy
     @snippet.destroy
-    redirect_to snippets_url, notice: 'Snippet was successfully destroyed.'
+    redirect_to root_path, notice: 'Snippet was successfully destroyed.'
   end
 
   private
@@ -48,7 +48,7 @@ class SnippetsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def snippet_params
-      params.require(:snippet).permit(:title, :work, :kind_id, :user_id)
+      params.require(:snippet).permit(:title, :work, :priv_snippet, :kind_id, :user_id)
     end
 
     def authorize_user

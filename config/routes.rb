@@ -1,18 +1,23 @@
 Rails.application.routes.draw do
 
-  resources :snippets
+
+  root "kinds#index"
+
+  resources :snippets, except: [:index]
 
   resources :users, only: [:new, :create, :show, :edit, :update]
   get   "/users/:id/edit_password" => "users#edit_password"   , as: :edit_password
   patch "/users/:id/edit_password" => "users#update_password" , as: :update_password
 
+  # PROBLEM: library_index apparently needs some form of ID
+  get "/kinds/library"      => "kinds#library_index", as: :library_index
+  get "/kinds/library/:id"  => "kinds#library_show" , as: :library_show
   resources :kinds, only: [:new, :show, :create, :index]
 
   resources :sessions, only: [:new, :create] do
     delete :destroy, on: :collection
   end
 
-  root "kinds#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

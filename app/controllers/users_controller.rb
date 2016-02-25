@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :find_user, only: [:show, :edit, :update, :edit_password, :update_password]
+  before_action :find_user, except: [:new, :create]
 
   def new
     @user = User.new

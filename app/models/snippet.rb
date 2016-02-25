@@ -4,4 +4,6 @@ class Snippet < ActiveRecord::Base
 
   validates :title, presence: true, uniqueness: { case_sensitive: false }
   validates :work, presence: true
+  validates :kind, presence: true
+
 end

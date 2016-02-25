@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160223035317) do
+ActiveRecord::Schema.define(version: 20160224031854) do
 
   create_table "kinds", force: :cascade do |t|
     t.string   "language"
@@ -24,8 +24,9 @@ ActiveRecord::Schema.define(version: 20160223035317) do
     t.text     "work"
     t.integer  "kind_id"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.boolean  "priv_snippet", default: false
   end
 
   add_index "snippets", ["kind_id"], name: "index_snippets_on_kind_id"
